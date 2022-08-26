@@ -1,17 +1,9 @@
 import { MongoClient } from "mongodb";
-import Head from "next/head";
+
 import BookList from "./component/books/BookList";
 
 export default function Home(props) {
-  return (
-    <div>
-      <Head>
-        <title>Book shelves</title>
-      </Head>
-
-      <BookList books={props.books} />
-    </div>
-  );
+  return <BookList books={props.books} />;
 }
 export async function getStaticProps() {
   const client = await MongoClient.connect(

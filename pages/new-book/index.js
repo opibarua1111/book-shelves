@@ -1,7 +1,9 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import NewbookForm from "../component/books/NewBookForm";
 
 function NewBookPage() {
+  const router = useRouter();
   async function addBookHandler(enteredBookData) {
     const response = await fetch("/api/new-book", {
       method: "POST",
@@ -12,11 +14,11 @@ function NewBookPage() {
     });
 
     const data = await response.json();
-    // console.log(enteredBookData);
     console.log(data);
+    router.push("/");
   }
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Book shelves</title>
       </Head>

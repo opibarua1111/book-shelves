@@ -5,7 +5,6 @@ import BookItem from "./BookItem";
 function BookList(props) {
   return (
     <Row>
-      {/* {props.books.map((book) => console.log(book.description))} */}
       {props.books.map((book) => (
         <BookItem
           key={book.id}
